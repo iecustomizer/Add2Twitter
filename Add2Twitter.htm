@@ -1,0 +1,29 @@
+<script type="text/javascript">
+// Add the current document to Twitter
+var win=external.menuArguments;
+var doc=win.document;
+var sURL=doc.URL;
+var keywords=doc.querySelector('meta[name=keywords]');
+var labels='';
+if(keywords){labels=keywords.getAttribute('content');}
+meta=doc.querySelector('meta[name=description]');
+var annotation='';
+if(meta){annotation=meta.getAttribute('content');}
+
+//https://twitter.com/intent/tweet?text=&url=&original_referer=
+var sURL=doc.URL;
+    var urlStr = 'https://twitter.com/intent/tweet?text=' + escape(doc.title) + '&url=' + escape(sURL);
+    var features = "width=550,height=300, left=0, top=0";
+try
+{
+    var oWindow = window.open(urlStr, "tweet", features);
+}
+catch(e)
+{
+alert(e.message+'\nFailed.');
+}
+finally
+{
+
+}
+</script>
